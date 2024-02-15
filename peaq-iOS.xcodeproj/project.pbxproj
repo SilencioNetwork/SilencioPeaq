@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0450EEB82B7DFE6D00D57368 /* SilencioPeaq.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 0450EEB72B7DFE6D00D57368 /* SilencioPeaq.podspec */; };
-		0450EEBA2B7E1F9700D57368 /* p.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0450EEB92B7E1F9700D57368 /* p.swift */; };
 		0487F4D22B5140DC001956FC /* peaq_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0487F4D12B5140DC001956FC /* peaq_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0487F6502B51418E001956FC /* NetworkIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487F4D92B51418B001956FC /* NetworkIndicatorManager.swift */; };
 		0487F6512B51418E001956FC /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487F4DA2B51418B001956FC /* NetworkOperation.swift */; };
@@ -420,7 +419,6 @@
 
 /* Begin PBXFileReference section */
 		0450EEB72B7DFE6D00D57368 /* SilencioPeaq.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = SilencioPeaq.podspec; sourceTree = SOURCE_ROOT; };
-		0450EEB92B7E1F9700D57368 /* p.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = p.swift; sourceTree = "<group>"; };
 		0487F4CE2B5140DC001956FC /* peaq_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = peaq_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0487F4D12B5140DC001956FC /* peaq_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = peaq_iOS.h; sourceTree = "<group>"; };
 		0487F4D92B51418B001956FC /* NetworkIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkIndicatorManager.swift; sourceTree = "<group>"; };
@@ -865,7 +863,6 @@
 				0487F6482B51418E001956FC /* xxHash-Swift */,
 				0487F4D12B5140DC001956FC /* peaq_iOS.h */,
 				0450EEB72B7DFE6D00D57368 /* SilencioPeaq.podspec */,
-				0450EEB92B7E1F9700D57368 /* p.swift */,
 			);
 			path = "peaq-iOS";
 			sourceTree = "<group>";
@@ -1686,7 +1683,6 @@
 				0487F7612B51418F001956FC /* Data+Keccak.swift in Sources */,
 				0487F6B62B51418E001956FC /* JSONRPCInfo.swift in Sources */,
 				0487F68F2B51418E001956FC /* CryptoType+Extrinsic.swift in Sources */,
-				0450EEBA2B7E1F9700D57368 /* p.swift in Sources */,
 				0487F6D32B51418F001956FC /* ExtrinsicMetadataV14.swift in Sources */,
 				0487F7A62B51418F001956FC /* Bitwise Ops.swift in Sources */,
 				0487F7812B51418F001956FC /* humansize.c in Sources */,
