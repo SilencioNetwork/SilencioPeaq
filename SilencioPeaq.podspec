@@ -36,7 +36,7 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT"
+  spec.license      = "Silencio Network LLC"
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -49,9 +49,9 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "Silencio Network LLC" => "info@silencio.network" }
-  # Or just: spec.author    = "Silencio Network LLC"
-  # spec.authors            = { "Silencio Network LLC" => "info@silencio.network" }
+  spec.author             = { "SilencioNetwork" => "info@silencio.network" }
+  # Or just: spec.author    = "SilencioNetwork"
+  # spec.authors            = { "SilencioNetwork" => "info@silencio.network" }
   # spec.social_media_url   = "https://discord.com/invite/uegUV8UkSJ"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -70,14 +70,14 @@ Pod::Spec.new do |spec|
   # spec.tvos.deployment_target = "9.0"
   # spec.visionos.deployment_target = "1.0"
 
+
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  Specify the location from where the source should be retrieved.
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source = { :git => "https://github.com/SilencioNetwork/SilencioPeaq.git", :tag => '1.0.0'}
-
+  spec.source       = { :git => "https://github.com/SilencioNetwork/SilencioPeaq.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
