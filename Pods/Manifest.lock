@@ -1,33 +1,30 @@
 PODS:
-  - IrohaCrypto (0.9.0):
-    - IrohaCrypto/BIP39 (= 0.9.0)
-    - IrohaCrypto/blake2 (= 0.9.0)
-    - IrohaCrypto/Common (= 0.9.0)
-    - IrohaCrypto/ed25519 (= 0.9.0)
-    - IrohaCrypto/Iroha (= 0.9.0)
-    - IrohaCrypto/Scrypt (= 0.9.0)
-    - IrohaCrypto/secp256k1 (= 0.9.0)
-    - IrohaCrypto/sr25519 (= 0.9.0)
-    - IrohaCrypto/ss58 (= 0.9.0)
-  - IrohaCrypto/BIP39 (0.9.0):
+  - IrohaCrypto (0.10.0):
+    - IrohaCrypto/BIP39 (= 0.10.0)
+    - IrohaCrypto/blake2 (= 0.10.0)
+    - IrohaCrypto/Common (= 0.10.0)
+    - IrohaCrypto/ed25519 (= 0.10.0)
+    - IrohaCrypto/Scrypt (= 0.10.0)
+    - IrohaCrypto/secp256k1 (= 0.10.0)
+    - IrohaCrypto/sr25519 (= 0.10.0)
+    - IrohaCrypto/ss58 (= 0.10.0)
+  - IrohaCrypto/BIP39 (0.10.0):
     - IrohaCrypto/Common
-  - IrohaCrypto/blake2 (0.9.0)
-  - IrohaCrypto/Common (0.9.0)
-  - IrohaCrypto/ed25519 (0.9.0):
+  - IrohaCrypto/blake2 (0.10.0)
+  - IrohaCrypto/Common (0.10.0)
+  - IrohaCrypto/ed25519 (0.10.0):
     - IrohaCrypto/Common
-  - IrohaCrypto/Iroha (0.9.0):
+  - IrohaCrypto/Scrypt (0.10.0):
     - IrohaCrypto/Common
-  - IrohaCrypto/Scrypt (0.9.0):
-    - IrohaCrypto/Common
-    - scrypt.c (~> 0.1)
-  - IrohaCrypto/secp256k1 (0.9.0):
+    - scrypt.c (= 0.1.1)
+  - IrohaCrypto/secp256k1 (0.10.0):
     - IrohaCrypto/Common
     - secp256k1.c (~> 0.1)
-  - IrohaCrypto/sr25519 (0.9.0):
+  - IrohaCrypto/sr25519 (0.10.0):
     - IrohaCrypto/BIP39
     - IrohaCrypto/blake2
     - IrohaCrypto/Common
-  - IrohaCrypto/ss58 (0.9.0):
+  - IrohaCrypto/ss58 (0.10.0):
     - IrohaCrypto/blake2
     - IrohaCrypto/Common
   - keccak.c (0.1.3)
@@ -60,7 +57,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/Boilertalk/secp256k1.swift.git
 
 SPEC CHECKSUMS:
-  IrohaCrypto: 6be75a4268cd1f5cec4231c6d3f95cb03f723fd3
+  IrohaCrypto: eb3772088068d8938198205b62b0a9dc5b8ce005
   keccak.c: 859583afdaccb4e4fcc0f0096064d101580313f4
   scrypt.c: b42ae06183251329d2b2c620c226fb541a4a3592
   secp256k1.c: db47b726585d80f027423682eb369729e61b3b20

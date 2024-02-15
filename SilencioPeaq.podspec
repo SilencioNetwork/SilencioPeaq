@@ -77,7 +77,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/SilencioNetwork/SilencioPeaq.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/SilencioNetwork/SilencioPeaq.git", :tag => "1.0.0" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -131,9 +131,9 @@ Pod::Spec.new do |spec|
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   
-  spec.dependency 'TweetNacl'
-  spec.dependency 'secp256k1.swift'
-  spec.dependency 'IrohaCrypto'
-  spec.dependency 'keccak.c'
+  #spec.dependency 'TweetNacl'
+  #spec.dependency 'secp256k1.swift'
+  #spec.dependency 'IrohaCrypto'
+  #spec.dependency 'keccak.c'
 
 end
