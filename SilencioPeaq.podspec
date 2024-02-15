@@ -131,10 +131,9 @@ Pod::Spec.new do |spec|
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   
-  #spec.dependency 'TweetNacl'
-  #spec.dependency 'secp256k1.swift'
-  #spec.dependency 'IrohaCrypto'
-  #spec.dependency 'keccak.c'
-  spec.dependency 'SVProgressHUD'
+  spec.dependency 'TweetNacl'
+  spec.dependency 'secp256k1.swift'
+  spec.dependency 'IrohaCrypto'
+  spec.dependency 'keccak.c'
 
 end
