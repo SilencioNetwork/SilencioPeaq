@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4FF1EE5493800BD023263DE462914B83"
-               BuildableName = "secp256k1.framework"
+               BuildableName = "secp256k1.swift"
                BlueprintName = "secp256k1.swift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

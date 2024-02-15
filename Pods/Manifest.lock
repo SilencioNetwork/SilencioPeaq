@@ -39,7 +39,7 @@ PODS:
 DEPENDENCIES:
   - IrohaCrypto
   - keccak.c
-  - secp256k1.swift
+  - secp256k1.swift (from `https://github.com/Boilertalk/secp256k1.swift.git`)
   - TweetNacl
 
 SPEC REPOS:
@@ -48,8 +48,16 @@ SPEC REPOS:
     - keccak.c
     - scrypt.c
     - secp256k1.c
-    - secp256k1.swift
     - TweetNacl
+
+EXTERNAL SOURCES:
+  secp256k1.swift:
+    :git: https://github.com/Boilertalk/secp256k1.swift.git
+
+CHECKOUT OPTIONS:
+  secp256k1.swift:
+    :commit: cd187c632fb812fd93711a9f7e644adb7e5f97f0
+    :git: https://github.com/Boilertalk/secp256k1.swift.git
 
 SPEC CHECKSUMS:
   IrohaCrypto: 6be75a4268cd1f5cec4231c6d3f95cb03f723fd3
@@ -59,6 +67,6 @@ SPEC CHECKSUMS:
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   TweetNacl: 3abf4d1d2082b0114e7a67410e300892448951e6
 
-PODFILE CHECKSUM: 7f1e424f3c4a7e6c2fe116c2fdbb7d48a1b24bac
+PODFILE CHECKSUM: 65dd7f78a53bd015cb39b3064605d0da6108f2e0
 
 COCOAPODS: 1.15.2

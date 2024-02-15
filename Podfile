@@ -14,7 +14,7 @@ target 'peaq-iOS' do
   use_frameworks!
 
   pod 'TweetNacl'
-  pod 'secp256k1.swift'
+  pod 'secp256k1.swift', :git => 'https://github.com/Boilertalk/secp256k1.swift.git'
   pod 'IrohaCrypto'
   pod 'keccak.c'
   # Pods for peaq-iOS
