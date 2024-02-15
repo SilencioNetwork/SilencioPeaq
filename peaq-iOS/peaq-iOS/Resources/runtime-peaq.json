@@ -1,0 +1,12 @@
+{
+  "runtime_id": 3,
+  "types": {
+    "Index": "u32",
+    "Balance": "u128",
+    "Address": "sp_runtime.multiaddress.MultiAddress",
+    "ExtrinsicSignature": "sp_runtime.MultiSignature",
+    "sp_core.crypto.AccountId32": "GenericAccountId"
+  },
+  "versioning": [
+  ]
+}

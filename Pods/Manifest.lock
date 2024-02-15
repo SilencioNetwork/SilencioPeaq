@@ -1,0 +1,64 @@
+PODS:
+  - IrohaCrypto (0.9.0):
+    - IrohaCrypto/BIP39 (= 0.9.0)
+    - IrohaCrypto/blake2 (= 0.9.0)
+    - IrohaCrypto/Common (= 0.9.0)
+    - IrohaCrypto/ed25519 (= 0.9.0)
+    - IrohaCrypto/Iroha (= 0.9.0)
+    - IrohaCrypto/Scrypt (= 0.9.0)
+    - IrohaCrypto/secp256k1 (= 0.9.0)
+    - IrohaCrypto/sr25519 (= 0.9.0)
+    - IrohaCrypto/ss58 (= 0.9.0)
+  - IrohaCrypto/BIP39 (0.9.0):
+    - IrohaCrypto/Common
+  - IrohaCrypto/blake2 (0.9.0)
+  - IrohaCrypto/Common (0.9.0)
+  - IrohaCrypto/ed25519 (0.9.0):
+    - IrohaCrypto/Common
+  - IrohaCrypto/Iroha (0.9.0):
+    - IrohaCrypto/Common
+  - IrohaCrypto/Scrypt (0.9.0):
+    - IrohaCrypto/Common
+    - scrypt.c (~> 0.1)
+  - IrohaCrypto/secp256k1 (0.9.0):
+    - IrohaCrypto/Common
+    - secp256k1.c (~> 0.1)
+  - IrohaCrypto/sr25519 (0.9.0):
+    - IrohaCrypto/BIP39
+    - IrohaCrypto/blake2
+    - IrohaCrypto/Common
+  - IrohaCrypto/ss58 (0.9.0):
+    - IrohaCrypto/blake2
+    - IrohaCrypto/Common
+  - keccak.c (0.1.3)
+  - scrypt.c (0.1.1)
+  - secp256k1.c (0.1.2)
+  - secp256k1.swift (0.1.4)
+  - TweetNacl (1.0.2)
+
+DEPENDENCIES:
+  - IrohaCrypto
+  - keccak.c
+  - secp256k1.swift
+  - TweetNacl
+
+SPEC REPOS:
+  trunk:
+    - IrohaCrypto
+    - keccak.c
+    - scrypt.c
+    - secp256k1.c
+    - secp256k1.swift
+    - TweetNacl
+
+SPEC CHECKSUMS:
+  IrohaCrypto: 6be75a4268cd1f5cec4231c6d3f95cb03f723fd3
+  keccak.c: 859583afdaccb4e4fcc0f0096064d101580313f4
+  scrypt.c: b42ae06183251329d2b2c620c226fb541a4a3592
+  secp256k1.c: db47b726585d80f027423682eb369729e61b3b20
+  secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
+  TweetNacl: 3abf4d1d2082b0114e7a67410e300892448951e6
+
+PODFILE CHECKSUM: 3fa873c9b360b6a37dd3709ab6ae20c46359af3b
+
+COCOAPODS: 1.15.2

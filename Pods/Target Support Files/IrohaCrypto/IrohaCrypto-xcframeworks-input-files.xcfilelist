@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/IrohaCrypto/IrohaCrypto-xcframeworks.sh
+${PODS_ROOT}/IrohaCrypto/blake2Imp/libblake2.xcframework
+${PODS_ROOT}/IrohaCrypto/ed25519Imp/libed25519_sha2.xcframework
+${PODS_ROOT}/IrohaCrypto/sr25519Imp/libsr25519crust.xcframework

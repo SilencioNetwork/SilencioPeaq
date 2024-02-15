@@ -1,0 +1,6 @@
+framework module Pods_peaq_iOS {
+  umbrella header "Pods-peaq-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,3 @@
+${PODS_XCFRAMEWORKS_BUILD_DIR}/IrohaCrypto/blake2/libblake2.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/IrohaCrypto/ed25519/libed25519_sha2.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/IrohaCrypto/sr25519/libsr25519crust.framework
