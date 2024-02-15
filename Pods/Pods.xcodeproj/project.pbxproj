@@ -1995,6 +1995,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 944DE43A8679FBC8460680AF9EB91734 /* IrohaCrypto.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2014,6 +2015,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/IrohaCrypto/IrohaCrypto.modulemap";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = IrohaCrypto;
 				PRODUCT_NAME = IrohaCrypto;
 				SDKROOT = iphoneos;
@@ -2030,6 +2032,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 80352BA0FD656F61DE0EC8D58A0EF1D1 /* scrypt.c.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2048,6 +2051,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/scrypt.c/scrypt.c.modulemap";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = scrypt;
 				PRODUCT_NAME = scrypt;
 				SDKROOT = iphoneos;
@@ -2065,6 +2069,7 @@
 			baseConfigurationReference = 8D032F612B6040CA6EC50212BBEFF16E /* Pods-peaq-iOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2084,6 +2089,7 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-peaq-iOS/Pods-peaq-iOS.modulemap";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2101,6 +2107,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 790BC082ECA916203E12B1F31C50F265 /* scrypt.c.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2119,6 +2126,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/scrypt.c/scrypt.c.modulemap";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = scrypt;
 				PRODUCT_NAME = scrypt;
 				SDKROOT = iphoneos;
@@ -2136,6 +2144,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0FBA256B81E314CCA4A201BAD93BDE46 /* secp256k1.swift.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2154,6 +2163,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/secp256k1.swift/secp256k1.swift.modulemap";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = secp256k1;
 				PRODUCT_NAME = secp256k1;
 				SDKROOT = iphoneos;
@@ -2172,6 +2182,7 @@
 			baseConfigurationReference = CEB2788D95642670FC056C2201C6F430 /* Pods-peaq-iOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2191,6 +2202,7 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-peaq-iOS/Pods-peaq-iOS.modulemap";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2275,6 +2287,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F004A1142CF8F67EE86C60242B48E5C7 /* keccak.c.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2293,6 +2306,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/keccak.c/keccak.c.modulemap";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = keccak;
 				PRODUCT_NAME = keccak;
 				SDKROOT = iphoneos;
@@ -2310,6 +2324,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D21ABEB7B5065B0ADD658FF650CB90E1 /* IrohaCrypto.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2329,6 +2344,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/IrohaCrypto/IrohaCrypto.modulemap";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = IrohaCrypto;
 				PRODUCT_NAME = IrohaCrypto;
 				SDKROOT = iphoneos;
@@ -2346,6 +2362,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BDEA8FFBF08EF6778B274CD655ADB203 /* secp256k1.swift.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2364,6 +2381,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/secp256k1.swift/secp256k1.swift.modulemap";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = secp256k1;
 				PRODUCT_NAME = secp256k1;
 				SDKROOT = iphoneos;
@@ -2442,6 +2460,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E256431FEFBBF504D7530B342D39ECF /* secp256k1.c.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2460,6 +2479,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/secp256k1.c/secp256k1.c.modulemap";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = secp256k1;
 				PRODUCT_NAME = secp256k1;
 				SDKROOT = iphoneos;
@@ -2477,6 +2497,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B294662668ABE8F4E9A11AC82364C8AA /* secp256k1.c.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2495,6 +2516,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/secp256k1.c/secp256k1.c.modulemap";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = secp256k1;
 				PRODUCT_NAME = secp256k1;
 				SDKROOT = iphoneos;
@@ -2512,6 +2534,7 @@
 			baseConfigurationReference = 7456D5F9C696EB9CF2F757D3C48E8F46 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2531,6 +2554,7 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Example/Pods-Example.modulemap";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -2548,6 +2572,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FFB18DA3190B35B068ADEDFA486BF839 /* keccak.c.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2566,6 +2591,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/keccak.c/keccak.c.modulemap";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = keccak;
 				PRODUCT_NAME = keccak;
 				SDKROOT = iphoneos;
@@ -2582,6 +2608,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 41C75E5F08BE84D94F3A13365DF8D284 /* TweetNacl.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2600,6 +2627,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/TweetNacl/TweetNacl.modulemap";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = TweetNacl;
 				PRODUCT_NAME = TweetNacl;
 				SDKROOT = iphoneos;
@@ -2617,6 +2645,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1769F7963D37E4B87B633C6AC297DD15 /* TweetNacl.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -2635,6 +2664,7 @@
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/TweetNacl/TweetNacl.modulemap";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_MODULE_NAME = TweetNacl;
 				PRODUCT_NAME = TweetNacl;
 				SDKROOT = iphoneos;
@@ -2652,6 +2682,7 @@
 			baseConfigurationReference = D80EC16205821D17EDDF6BC288261B88 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2671,6 +2702,7 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Example/Pods-Example.modulemap";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
