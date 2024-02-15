@@ -135,5 +135,6 @@ Pod::Spec.new do |spec|
   #spec.dependency 'secp256k1.swift'
   #spec.dependency 'IrohaCrypto'
   #spec.dependency 'keccak.c'
+  spec.dependency 'SVProgressHUD'
 
 end

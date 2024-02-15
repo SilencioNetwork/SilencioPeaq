@@ -177,6 +177,7 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/IrohaCrypto/IrohaCrypto.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TweetNacl/TweetNacl.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/keccak.c/keccak.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/scrypt.c/scrypt.framework"
@@ -184,6 +185,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/IrohaCrypto/IrohaCrypto.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TweetNacl/TweetNacl.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/keccak.c/keccak.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/scrypt.c/scrypt.framework"
