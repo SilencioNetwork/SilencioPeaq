@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "SilencioPeaq"
-  spec.version      = "1.0.1"
+  spec.version      = "1.0.0"
   spec.summary      = "Silencio Peaq Implementian"
 
   # This description is used to generate tags and improve search results.
@@ -77,7 +77,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/SilencioNetwork/SilencioPeaq.git", :tag => "1.0.1" }
+  spec.source       = { :git => "https://github.com/SilencioNetwork/SilencioPeaq.git", :tag => "1.0.0" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
