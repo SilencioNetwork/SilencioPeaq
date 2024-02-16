@@ -89,6 +89,9 @@ Pod::Spec.new do |spec|
   #
 
   spec.source_files  = "peaq-iOS/**/*.{swift,m,h,c,json}"
+  #spec.resource_bundles = {
+  #  "runtime-peaq" => ["peaq-iOS/**/*.{swift,m,h,c,json}"]
+  #}
   #spec.source_files  = "peaq-iOS"
   #spec.exclude_files = "Classes/Exclude"
 
