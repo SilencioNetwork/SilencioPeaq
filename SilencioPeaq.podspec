@@ -88,9 +88,11 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "peaq-iOS/**/*.{swift,m,h,c,json}"
-  #spec.source_files  = "peaq-iOS"
-  #spec.exclude_files = "Classes/Exclude"
+  spec.source_files  = "peaq-iOS/**/*.{swift,m,c,json}"
+  spec.resource_bundles = {
+    'runtime-peaq' => ["peaq-iOS/**/*.{json}"], 'runtime-default' => ["peaq-iOS/**/*.{json}"]
+  }
+  # spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
 
@@ -133,7 +135,7 @@ Pod::Spec.new do |spec|
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   
   spec.dependency 'TweetNacl'
-  spec.dependency 'secp256k1.swift'
+  spec.dependency 'secp256k1.c'
   spec.dependency 'IrohaCrypto'
   spec.dependency 'keccak.c'
 
