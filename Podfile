@@ -14,19 +14,19 @@ target 'peaq-iOS' do
   use_frameworks!
 
   pod 'TweetNacl'
-  pod 'secp256k1.swift'
+  pod 'secp256k1.c'
   pod 'IrohaCrypto'
   pod 'keccak.c'
   # Pods for peaq-iOS
 
   post_install do |installer|
-    installer.pods_project.targets.each do |target|
-      target.build_configurations.each do |config|
-        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
-        config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
-        config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+      installer.generated_projects.each do |project|
+          project.targets.each do |target|
+              target.build_configurations.each do |config|
+                  config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+              end
+          end
       end
-    end
   end
   
 end

@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "SilencioPeaq"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.3"
   spec.summary      = "Silencio Peaq Implementian"
 
   # This description is used to generate tags and improve search results.
@@ -24,7 +24,7 @@ Pod::Spec.new do |spec|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  spec.description  = "Silencio Peaq Implementian"
+  spec.description  = "Silencio Peaq Implementian."
 
   spec.homepage       = "https://github.com/SilencioNetwork/SilencioPeaq"
 
@@ -49,10 +49,10 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "SilencioNetwork" => "info@silencio.network" }
-  # Or just: spec.author    = "SilencioNetwork"
-  # spec.authors            = { "SilencioNetwork" => "info@silencio.network" }
-  # spec.social_media_url   = "https://discord.com/invite/uegUV8UkSJ"
+  spec.author             = { "Silencio Network LLC" => "info@silencio.network" }
+  # Or just: spec.author    = "Silencio Network LLC"
+  # spec.authors            = { "Silencio Network LLC" => "info@silencio.network" }
+  spec.social_media_url   = "https://discord.com/invite/uegUV8UkSJ"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -77,7 +77,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/SilencioNetwork/SilencioPeaq.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/SilencioNetwork/SilencioPeaq.git", :tag => "1.0.3" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -88,8 +88,13 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "peaq-iOS"
-  #spec.exclude_files = "Classes/Exclude"
+  spec.source_files  = "peaq-iOS/**/*.{swift,m,c}"
+  #spec.resource_bundles = {
+  #  'runtime-peaq' => ["peaq-iOS/peaq-iOS/Resources"], 'runtime-default' => ["peaq-iOS/**/*.{json}"]
+  #}
+  spec.resources = 'peaq-iOS/peaq-iOS/Resources/runtime-peaq.json', 'peaq-iOS/peaq-iOS/Resources/runtime-default.json'
+  
+  # spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
 
@@ -103,7 +108,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.resource  = "icon.png"
-  # spec.resources = "Resources/*.png"
+  # spec.resources = ""
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
@@ -132,7 +137,7 @@ Pod::Spec.new do |spec|
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   
   spec.dependency 'TweetNacl'
-  spec.dependency 'secp256k1.swift'
+  spec.dependency 'secp256k1.c'
   spec.dependency 'IrohaCrypto'
   spec.dependency 'keccak.c'
 
