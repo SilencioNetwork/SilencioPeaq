@@ -7,7 +7,6 @@
 
 import UIKit
 import peaq_iOS
-import IrohaCrypto
 
 class ViewController: UIViewController {
 
