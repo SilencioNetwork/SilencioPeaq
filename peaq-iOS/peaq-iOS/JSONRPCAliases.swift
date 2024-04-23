@@ -4,6 +4,7 @@ import Foundation
 typealias StorageSubscriptionUpdate = JSONRPCSubscriptionUpdate<StorageUpdate>
 typealias ExtrinsicSubscriptionUpdate = JSONRPCSubscriptionUpdate<ExtrinsicStatus>
 typealias JSONRPCQueryOperation = JSONRPCOperation<StorageQuery, [StorageUpdate]>
+typealias JSONRPCQueryOperationForGetItem = JSONRPCOperation<StorageQueryForGetItem, [StorageUpdate]>
 //typealias SuperIdentityOperation = BaseOperation<[StorageResponse<SuperIdentity>]>
 //typealias SuperIdentityWrapper = CompoundOperationWrapper<[StorageResponse<SuperIdentity>]>
 //typealias IdentityOperation = BaseOperation<[StorageResponse<Identity>]>

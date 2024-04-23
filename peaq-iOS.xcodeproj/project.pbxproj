@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		044C3D592BB441D7001491F8 /* did_document_format.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C3D582BB441D7001491F8 /* did_document_format.pb.swift */; };
 		0450EEB82B7DFE6D00D57368 /* SilencioPeaq.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 0450EEB72B7DFE6D00D57368 /* SilencioPeaq.podspec */; };
 		0487F4D22B5140DC001956FC /* peaq_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0487F4D12B5140DC001956FC /* peaq_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0487F6502B51418E001956FC /* NetworkIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487F4D92B51418B001956FC /* NetworkIndicatorManager.swift */; };
@@ -418,6 +419,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		044C3D582BB441D7001491F8 /* did_document_format.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = did_document_format.pb.swift; sourceTree = "<group>"; };
 		0450EEB72B7DFE6D00D57368 /* SilencioPeaq.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = SilencioPeaq.podspec; sourceTree = SOURCE_ROOT; };
 		0487F4CE2B5140DC001956FC /* peaq_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = peaq_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0487F4D12B5140DC001956FC /* peaq_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = peaq_iOS.h; sourceTree = "<group>"; };
@@ -926,6 +928,7 @@
 		0487F50A2B51418B001956FC /* peaq-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				044C3D582BB441D7001491F8 /* did_document_format.pb.swift */,
 				0487F50B2B51418B001956FC /* JSONRPCAliases.swift */,
 				0487F50C2B51418B001956FC /* Resources */,
 				0487F50F2B51418B001956FC /* Utils */,
@@ -1695,6 +1698,7 @@
 				0487F6592B51418E001956FC /* CoreDataServiceConfiguration.swift in Sources */,
 				0487F6F72B51418F001956FC /* TableResolver.swift in Sources */,
 				0487F6E92B51418F001956FC /* SubstrateQREncoder.swift in Sources */,
+				044C3D592BB441D7001491F8 /* did_document_format.pb.swift in Sources */,
 				0487F7662B51418F001956FC /* Data+Seed.swift in Sources */,
 				0487F73C2B51418F001956FC /* KeystoreData.swift in Sources */,
 				0487F66B2B51418E001956FC /* NetworkOperationHelper.swift in Sources */,

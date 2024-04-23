@@ -306,7 +306,7 @@ extension ExtrinsicBuilder: ExtrinsicBuilderProtocol {
         }
 
         let sigJson = try signature.toScaleCompatibleJSON(with: runtimeJsonContext?.toRawContext())
-
+        
         let extra = try createExtra()
         self.signature = ExtrinsicSignature(address: address,
                                             signature: sigJson,
