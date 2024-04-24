@@ -71,7 +71,7 @@ class ViewController: UIViewController {
         lblSignature.isHidden = true
         lblSignature.text = ""
         let machineSeed = "speed movie excess amateur tent envelope few raise egg large either antique"
-        let signature = generateAndSignData(machineSeed: machineSeed, data: "Hello World")
+        let signature = signData(machineSeed: machineSeed, data: "Hello World")
         if signature != nil && !signature!.isEmpty {
             lblSignature.isHidden = false
             lblSignature.text = signature
@@ -88,14 +88,12 @@ class ViewController: UIViewController {
         lblGetData.isHidden = true
         lblGetData.text = ""
         let itemType = "did:peaq:123"//"MPyBqjNlAY"
-        getItem(itemType: itemType)
+        fetchStorageData(itemType: itemType)
     }
     
     @IBAction func verifyData(_ sender: UIButton) {
-        
         lblVerifyData.isHidden = true
         lblVerifyData.text = ""
-        
         verifyData()
     }
     
@@ -103,14 +101,14 @@ class ViewController: UIViewController {
     func createMachineID() {
         self.hiddenShowViews(ishidden: true)
         IndicatorManager.showLoader()
-        
+        let mainSeed = "speed movie excess amateur tent envelope few raise egg large either antique"
         do {
-            try peaq.shared.createInstance(baseUrl: liveOrTest ? peaq_url : peaq_testnet_url) { [self] isSuccess, err in
+            try peaq.shared.createInstance(baseUrl: liveOrTest ? peaq_url : peaq_testnet_url, secretPhrase: mainSeed) { [self] isSuccess, err in
                 if isSuccess {
                     
                     let (seed, error) = peaq.shared.generateMnemonicSeed()
                     let (seed2, error2) = peaq.shared.generateMnemonicSeed()
-                    let mainSeed = "speed movie excess amateur tent envelope few raise egg large either antique"
+                    
                     if let seed = seed, let seed2 = seed2 {
                         print("SEED", seed)
                         
@@ -126,9 +124,9 @@ class ViewController: UIViewController {
                             print("publicKey", publicKey)
                             print("address", address)
                             
-                            if let dIdDoc = peaq.shared.createDidDocument(issuserSeed: mainSeed, ownerAddress: address, machineAddress: address2, machinePublicKey: publicKey2, customData: "{\"id\":1, \"name\":\"sensor 1\"}") {
+                            if let dIdDoc = peaq.shared.createDidDocument(ownerAddress: address, machineAddress: address2, machinePublicKey: publicKey2, customData: [DIDDocumentCustomData(id: "12", type: "custom_data", data: "{\"id\":1, \"name\":\"sensor 1\"}")]) {
                                 do {
-                                    try peaq.shared.create(seed: mainSeed, name: "did:peaq:\(address)", value: dIdDoc) { hashKey, err in
+                                    try peaq.shared.createDid(name: "did:peaq:\(address)", value: dIdDoc) { hashKey, err in
                                         
                                         IndicatorManager.hideLoader()
                                         guard err == nil else {
@@ -168,14 +166,14 @@ class ViewController: UIViewController {
     func register() {
         self.hiddenShowViews(ishidden: true)
         IndicatorManager.showLoader()
-        
+        let mainSeed = "speed movie excess amateur tent envelope few raise egg large either antique"
         do {
-            try peaq.shared.createInstance(baseUrl: liveOrTest ? peaq_url : peaq_testnet_url) { [self] isSuccess, err in
+            try peaq.shared.createInstance(baseUrl: liveOrTest ? peaq_url : peaq_testnet_url, secretPhrase: mainSeed) { [self] isSuccess, err in
                 if isSuccess {
                     
                     let (seed, error) = peaq.shared.generateMnemonicSeed()
                     let (seed2, error2) = peaq.shared.generateMnemonicSeed()
-                    let mainSeed = "speed movie excess amateur tent envelope few raise egg large either antique"
+                    
                     if let seed = seed, let seed2 = seed2 {
                         print("SEED", seed)
                         
@@ -191,9 +189,9 @@ class ViewController: UIViewController {
                             print("publicKey", publicKey)
                             print("address", address)
                             
-                            if let dIdDoc = peaq.shared.createDidDocument(issuserSeed: mainSeed, ownerAddress: address, machineAddress: address2, machinePublicKey: publicKey2, customData: "{\"id\":1, \"name\":\"sensor 1\"}") {
+                            if let dIdDoc = peaq.shared.createDidDocument(ownerAddress: address, machineAddress: address2, machinePublicKey: publicKey2, customData: [DIDDocumentCustomData(id: "12", type: "custom_data", data: "{\"id\":1, \"name\":\"sensor 1\"}")]) {
                                 do {
-                                    try peaq.shared.create(seed: mainSeed, name: "did:peaq:\(address)", value: dIdDoc) { hashKey, err in
+                                    try peaq.shared.createDid(name: "did:peaq:\(address)", value: dIdDoc) { hashKey, err in
                                         
                                         IndicatorManager.hideLoader()
                                         guard err == nil else {
@@ -230,23 +228,22 @@ class ViewController: UIViewController {
         }
     }
     
-    func generateAndSignData(machineSeed: String, data: String) -> String? {
-        let signature = peaq.shared.signData(painData: data, machineSeed: machineSeed, format: .sr25519)
+    func signData(machineSeed: String, data: String) -> String? {
+        let signature = peaq.shared.signData(plainData: data, machineSecretPhrase: machineSeed, format: .sr25519)
         print("signature", signature ?? "")
         return signature
     }
     
     func store(data: String) {
         IndicatorManager.showLoader()
+        let machineSeed = "speed movie excess amateur tent envelope few raise egg large either antique"
         do {
-            try peaq.shared.createInstance(baseUrl: liveOrTest ? peaq_url : peaq_testnet_url) { [self] isSuccess, err in
+            try peaq.shared.createInstance(baseUrl: liveOrTest ? peaq_url : peaq_testnet_url, secretPhrase: machineSeed) { [self] isSuccess, err in
                 if isSuccess {
-                    let machineSeed = "speed movie excess amateur tent envelope few raise egg large either antique"
-                    if let signature = generateAndSignData(machineSeed: machineSeed, data: data) {
+                    if let signature = signData(machineSeed: machineSeed, data: data) {
                         let itemType = randomString(length: 10)
-                        
                         do {
-                            try peaq.shared.addItems(seed: machineSeed, payloadHex: signature, itemType: itemType) { [self] str, err in
+                            try peaq.shared.storeMachineDataHash(ownerSeed: machineSeed, value: signature, key: itemType) { [self] str, err in
                                 IndicatorManager.hideLoader()
                                 guard err == nil else {
                                     self.alert(err!.localizedDescription)
@@ -260,7 +257,6 @@ class ViewController: UIViewController {
                             alert(error.localizedDescription)
                         }
                     }
-                    
                 } else {
                     IndicatorManager.hideLoader()
                     alert(err?.localizedDescription ?? "Something went wrong.")
@@ -272,15 +268,15 @@ class ViewController: UIViewController {
         }
     }
     
-    func getItem(itemType: String) {
+    func fetchStorageData(itemType: String) {
         IndicatorManager.showLoader()
+        let machineSeed = "speed movie excess amateur tent envelope few raise egg large either antique"
         do {
-            try peaq.shared.createInstance(baseUrl: liveOrTest ? peaq_url : peaq_testnet_url) { [self] isSuccess, err in
+            try peaq.shared.createInstance(baseUrl: liveOrTest ? peaq_url : peaq_testnet_url, secretPhrase: machineSeed) { [self] isSuccess, err in
                 if isSuccess {
-                    let machineSeed = "speed movie excess amateur tent envelope few raise egg large either antique"
                     if let address = peaq.shared.getAddressFromMachineSeed(machineSeed: machineSeed) {
                         do {
-                            let data = try peaq.shared.getItem(address: address, itemType: itemType)
+                            let data = try peaq.shared.fetchStorageData(address: address, key: itemType)
                             IndicatorManager.hideLoader()
                             lblGetData.isHidden = false
                             lblGetData.text = data?.stringValue
@@ -307,8 +303,8 @@ class ViewController: UIViewController {
         let machineSeed = "speed movie excess amateur tent envelope few raise egg large either antique"
         let data = "Hello World"
         let publicKey = peaq.shared.getPublicKey(machineSeed: machineSeed, format: .sr25519)
-        if let signature = generateAndSignData(machineSeed: machineSeed, data: data) {
-            let isVerify = peaq.shared.verifySignatureData(publicKey: publicKey ?? "", plainData: data, signature: signature)
+        if let signature = signData(machineSeed: machineSeed, data: data) {
+            let isVerify = peaq.shared.verifyData(machinePublicKey: publicKey ?? "", plainDataHex: data, signature: signature)
             print("isVerify", isVerify)
             
             lblVerifyData.isHidden = false

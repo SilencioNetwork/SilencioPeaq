@@ -8,6 +8,20 @@
 import Foundation
 import IrohaCrypto
 
+public class DIDDocumentCustomData: NSObject {
+    
+    //MARK: - Properties
+    var id: String!
+    var type: String!
+    var data: String!
+    
+    public init(id: String!, type: String!, data: String!) {
+        self.id = id
+        self.type = type
+        self.data = data
+    }
+}
+
 public class peaq: NSObject {
     
     //MARK: - Properties
@@ -18,6 +32,7 @@ public class peaq: NSObject {
     private var runtimeMetadata: RuntimeMetadataProtocol?
     private var catalog: TypeRegistryCatalog?
     private var extrinsicSubscriptionId: UInt16?
+    private var issuerSeed: String = ""
     
     private static let fallbackMaxHashCount: BlockNumber = 250
     private static let maxFinalityLag: BlockNumber = 5
@@ -30,16 +45,18 @@ public class peaq: NSObject {
             let mnemonicCreator: IRMnemonicCreatorProtocol = IRMnemonicCreator()
             let mnemonic = try mnemonicCreator.randomMnemonic(.entropy128)
             let mnemonicWords = mnemonic.allWords().joined(separator: " ")
+            
             return (mnemonicWords, nil)
         } catch {
             return (nil, error)
         }
     }
     
-    public func createInstance(baseUrl: String, seed: String? = nil, _ completionHandler: @escaping (_ isSuccess: Bool, _ err: Error?) -> Void) throws {
+    public func createInstance(baseUrl: String, secretPhrase: String, _ completionHandler: @escaping (_ isSuccess: Bool, _ err: Error?) -> Void) throws {
         do {
             engine = WebSocketEngine(urls: [URL(string: baseUrl)!], logger: nil)
             (runtimeVersion, runtimeMetadata, catalog) = try fetchRuntimeData()
+            issuerSeed = secretPhrase
             completionHandler(true, nil)
         } catch {
             completionHandler(false, error)
@@ -47,14 +64,14 @@ public class peaq: NSObject {
         }
     }
     
-    public func createDidDocument(issuserSeed: String, ownerAddress: String, machineAddress: String, machinePublicKey: Data, customData: String?) -> String? {
-        let (issuserAddress, addressGetError) = peaq.shared.getAddressFromSeed(machineSeed: issuserSeed)
+    public func createDidDocument(ownerAddress: String, machineAddress: String, machinePublicKey: Data, customData: [DIDDocumentCustomData]?) -> String? {
+        let (issuserAddress, addressGetError) = peaq.shared.getAddressFromSeed(machineSeed: issuerSeed)
         if let issuserAddress = issuserAddress {
             let originalData = try? SS58AddressFactory().type(fromAddress: machineAddress)
             
             if let data = originalData?.stringValue.data(using: .utf8) {
                 
-                if let machineKeypair = peaq.shared.generateKeyPair(machineSeed: issuserSeed) {
+                if let machineKeypair = peaq.shared.generateKeyPair(machineSeed: issuerSeed) {
                     do {
                         let signature = try machineKeypair.sign(data)
                         print(signature.rawData().toHex())
@@ -88,11 +105,14 @@ public class peaq: NSObject {
                         doc.services = [docService]
                         
                         if customData != nil && !customData!.isEmpty {
-                            var docCustomService = Document_Service()
-                            docCustomService.id = machineAddress
-                            docCustomService.type = "custom_data"
-                            docCustomService.data = customData!
-                            doc.services = [docService,docCustomService]
+                            
+                            for i in customData! {
+                                var docCustomService = Document_Service()
+                                docCustomService.id = i.id
+                                docCustomService.type = i.type
+                                docCustomService.data = i.data
+                                doc.services.append(docCustomService)
+                            }
                         }
                         
                         return try? doc.jsonUTF8Data().toHex()
@@ -112,9 +132,9 @@ public class peaq: NSObject {
         return nil
     }
     
-    public func create(seed: String, name: String, value: String,_ completionHandler: @escaping (_ hashKey: String?, _ err: Error?) -> Void) throws {
+    public func createDid(name: String, value: String,_ completionHandler: @escaping (_ hashKey: String?, _ err: Error?) -> Void) throws {
         
-        let seedResult = try SeedFactory().deriveSeed(from: seed, password: "")
+        let seedResult = try SeedFactory().deriveSeed(from: issuerSeed, password: "")
         
         let keypairOwner = try SR25519KeypairFactory().createKeypairFromSeed(
             seedResult.seed.miniSeed,
@@ -282,12 +302,12 @@ public class peaq: NSObject {
         }
     }
     
-    public func signData(painData: String, machineSeed: String, format: CryptoType) -> String? {
+    public func signData(plainData: String, machineSecretPhrase: String, format: CryptoType) -> String? {
         
-        let originalData = painData.data(using: .utf8)!
+        let originalData = plainData.data(using: .utf8)!
         
         do {
-            let seedResult = try SeedFactory().deriveSeed(from: machineSeed, password: "")
+            let seedResult = try SeedFactory().deriveSeed(from: machineSecretPhrase, password: "")
             
             var keypairOwner : IRCryptoKeypairProtocol!
             
@@ -326,9 +346,9 @@ public class peaq: NSObject {
         return nil
     }
     
-    public func addItems(seed: String, payloadHex: String, itemType: String, _ completionHandler: @escaping (_ hashKey: String?, _ err: Error?) -> Void) throws {
+    public func storeMachineDataHash(ownerSeed: String, value: String, key: String, _ completionHandler: @escaping (_ hashKey: String?, _ err: Error?) -> Void) throws {
         
-        let seedResult = try SeedFactory().deriveSeed(from: seed, password: "")
+        let seedResult = try SeedFactory().deriveSeed(from: ownerSeed, password: "")
         
         let keypairOwner = try SR25519KeypairFactory().createKeypairFromSeed(
             seedResult.seed.miniSeed,
@@ -363,7 +383,7 @@ public class peaq: NSObject {
         .with(nonce: nonceOwner)
         .with(address: MultiAddress.accoundId(accountIdOwner))
         
-        let call = generateRuntimeCallForAddItems(payloadHex: payloadHex, itemType: itemType)
+        let call = generateRuntimeCallForAddItems(payloadHex: value, itemType: key)
         builder = try builder.adding(call: call)
         
         let signingClosure: (Data) throws -> Data = { data in
@@ -414,10 +434,10 @@ public class peaq: NSObject {
         )
     }
     
-    public func getItem(address: String, itemType: String) throws -> JSON? {
+    public func fetchStorageData(address: String, key: String) throws -> JSON? {
         do {
             let accountId = try SS58AddressFactory().accountId(from: address)
-            let itemTypeData = itemType.data(using: .utf8)!
+            let itemTypeData = key.data(using: .utf8)!
             let keyParam = accountId.toHex() + itemTypeData.toHex()
             let keyParamData = try Data(hexString: keyParam)
             let keyParams = [keyParamData]
@@ -483,14 +503,14 @@ public class peaq: NSObject {
         }
     }
     
-    public func verifySignatureData(publicKey: String, plainData: String, signature: String) -> Bool {
+    public func verifyData(machinePublicKey: String, plainDataHex: String, signature: String) -> Bool {
         do {
             let signatureData = try Data(hexString: signature)
-            let publicKeyData = try Data(hexString: publicKey)
+            let publicKeyData = try Data(hexString: machinePublicKey)
             
             let edPublicKey = try EDPublicKey(rawData: publicKeyData)
             let edVerifier = IrohaCrypto.EDSignatureVerifier()
-            if let plain = plainData.data(using: .utf8) {
+            if let plain = plainDataHex.data(using: .utf8) {
                 let edSignature = try EDSignature(rawData: signatureData)
                 let isVerify = edVerifier.verify(edSignature, forOriginalData: plain, usingPublicKey: edPublicKey)
                 if isVerify {
@@ -500,7 +520,7 @@ public class peaq: NSObject {
             
             let snPublicKey = try SNPublicKey(rawData: publicKeyData)
             let snVerifier = IrohaCrypto.SNSignatureVerifier()
-            if let plain = plainData.data(using: .utf8) {
+            if let plain = plainDataHex.data(using: .utf8) {
                 let snSignature = try SNSignature(rawData: signatureData)
                 let isVerify = snVerifier.verify(snSignature, forOriginalData: plain, using: snPublicKey)
                 return isVerify
