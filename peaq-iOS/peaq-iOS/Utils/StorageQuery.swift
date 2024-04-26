@@ -16,3 +16,8 @@ struct StorageQuery: Encodable {
         }
     }
 }
+
+struct StorageQueryForGetItem: Encodable {
+    let keys: Data?
+    let blockHash: Data?
+}

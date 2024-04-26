@@ -6,6 +6,11 @@ struct StorageCodingPath: Equatable {
 }
 
 extension StorageCodingPath {
+    
+    static var itemStore: StorageCodingPath {
+        StorageCodingPath(moduleName: "PeaqStorage", itemName: "ItemStore")
+    }
+    
     static var attributeStore: StorageCodingPath {
         StorageCodingPath(moduleName: "PeaqDid", itemName: "AttributeStore")
     }

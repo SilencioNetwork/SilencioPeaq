@@ -1,5 +1,6 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
+use_modular_headers!
 
 target 'Example' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -17,7 +18,7 @@ target 'peaq-iOS' do
   pod 'secp256k1.c'
   pod 'IrohaCrypto'
   pod 'keccak.c'
-  # Pods for peaq-iOS
+  pod 'SwiftProtobuf'
 
   post_install do |installer|
       installer.generated_projects.each do |project|

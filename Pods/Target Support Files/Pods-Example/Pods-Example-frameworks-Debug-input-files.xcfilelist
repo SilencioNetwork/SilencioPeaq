@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/IrohaCrypto/IrohaCrypto.framework
+${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework
 ${BUILT_PRODUCTS_DIR}/TweetNacl/TweetNacl.framework
 ${BUILT_PRODUCTS_DIR}/keccak.c/keccak.framework
 ${BUILT_PRODUCTS_DIR}/scrypt.c/scrypt.framework
