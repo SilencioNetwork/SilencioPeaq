@@ -132,9 +132,9 @@ public class peaq: NSObject {
         return nil
     }
     
-    public func createDid(name: String, value: String,_ completionHandler: @escaping (_ hashKey: String?, _ err: Error?) -> Void) throws {
+    public func createDid(secretPhrase: String, name: String, value: String,_ completionHandler: @escaping (_ hashKey: String?, _ err: Error?) -> Void) throws {
         
-        let seedResult = try SeedFactory().deriveSeed(from: issuerSeed, password: "")
+        let seedResult = try SeedFactory().deriveSeed(from: secretPhrase, password: "")
         
         let keypairOwner = try SR25519KeypairFactory().createKeypairFromSeed(
             seedResult.seed.miniSeed,

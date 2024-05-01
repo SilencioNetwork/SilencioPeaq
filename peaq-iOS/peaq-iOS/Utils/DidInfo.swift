@@ -1,8 +1,8 @@
 import Foundation
 
 public struct DidInfo: Codable, Equatable {
-    @BytesCodable var name: Data
-    @BytesCodable var value: Data
-    @StringCodable var validity: BlockNumber
-    @StringCodable var created: UInt64
+    @BytesCodable public var name: Data
+    @BytesCodable public var value: Data
+    @StringCodable public var validity: BlockNumber
+    @StringCodable public var created: UInt64
 }
