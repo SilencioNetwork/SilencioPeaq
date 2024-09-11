@@ -163,6 +163,29 @@ class ViewController: UIViewController {
         }
     }
     
+    func createDidDocument() {
+        self.hiddenShowViews(ishidden: true)
+        IndicatorManager.showLoader()
+        do {
+            try peaq.shared.createInstance(baseUrl: liveOrTest ? peaq_url : peaq_testnet_url, secretPhrase: "") { [self] isSuccess, err in
+                if isSuccess {
+                    peaq.shared.createDidDocumentWithoutSeed(ownerAddress: "YOUR_ADDRESS", machineAddress: "YOUR_ADDRESS", machinePublicKey: "YOUR_ADDRESS".data(using: .utf8)!, customData: [DIDDocumentCustomData(id: "12", type: "custom_data", data: "{\"id\":1, \"name\":\"sensor 1\"}")], issuerAddress: "YOUR_ADDRESS", signatureHash: "YOUR_ADDRESS") { didDocument, error in
+                        self.lblHash.text = didDocument ?? (error?.localizedDescription ?? "")
+                        self.hiddenShowViews(ishidden: false)
+                        IndicatorManager.hideLoader()
+                    }
+                } else {
+                    IndicatorManager.hideLoader()
+                    alert(err?.localizedDescription ?? "Something went wrong.")
+                }
+            }
+        } catch {
+            IndicatorManager.hideLoader()
+            alert(error.localizedDescription)
+        }
+    }
+    
+    
     func register() {
         self.hiddenShowViews(ishidden: true)
         IndicatorManager.showLoader()

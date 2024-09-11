@@ -131,6 +131,62 @@ public class peaq: NSObject {
         }
         return nil
     }
+    /// Helps to create sign DID document
+    /// - Parameters:
+    ///     - ownerAddress: Owner/Wallet  adddress
+    ///     - machineAddress: Sensor  adddress
+    ///     - machinePublicKey: machine PublicKey
+    ///     - customData: custom data if you want to add to create document
+    ///     - issuerAddress: Address of issuer which you can find from server
+    ///     - signatureHash: signature Hash which you can find from server
+    public func createDidDocumentWithoutSeed(ownerAddress: String, machineAddress: String, machinePublicKey: Data, customData: [DIDDocumentCustomData]?, issuerAddress:String, signatureHash:String, completion:@escaping((String?, Error?) -> Void)){
+        
+        do {
+            var doc = Document_Document()
+            doc.id = "did:peaq:\(machineAddress)"
+            doc.controller = "did:peaq:\(issuerAddress)"
+            
+            var docVerificationMethod = Document_VerificationMethod()
+            docVerificationMethod.type = .sr25519VerificationKey2020
+            let machineAccountIdOwner = try machinePublicKey.publicKeyToAccountId()
+            let machineAccountAddressOwner = try SS58AddressFactory().address(fromAccountId: machineAccountIdOwner, type: UInt16(SNAddressType.genericSubstrate.rawValue))
+            if let machineAccountAddressData = machineAccountAddressOwner.data(using: .utf8) {
+                docVerificationMethod.id = machineAccountAddressData.toHex()
+                doc.authentications = [machineAccountAddressData.toHex()]
+            }
+            docVerificationMethod.controller = "did:peaq:\(issuerAddress)"
+            docVerificationMethod.publicKeyMultibase = machineAddress
+            doc.verificationMethods = [docVerificationMethod]
+            
+            
+            var docSignature = Document_Signature()
+            docSignature.issuer = issuerAddress
+            docSignature.type = .sr25519VerificationKey2020
+            docSignature.hash = signatureHash //signature.rawData().toHex() //this data is from server
+            doc.signature = docSignature
+            
+            var docService = Document_Service()
+            docService.id = "owner"
+            docService.type = "owner"
+            docService.data = ownerAddress
+            doc.services = [docService]
+            
+            if customData != nil && !customData!.isEmpty {
+                for i in customData! {
+                    var docCustomService = Document_Service()
+                    docCustomService.id = i.id
+                    docCustomService.type = i.type
+                    docCustomService.data = i.data
+                    doc.services.append(docCustomService)
+                }
+            }
+            let didDocument =  try? doc.jsonUTF8Data().toHex()
+            completion(didDocument, nil)
+        } catch {
+            print(error.localizedDescription)
+            completion(nil, error)
+        }
+    }
     
     public func createDid(name: String, value: String,_ completionHandler: @escaping (_ hashKey: String?, _ err: Error?) -> Void) throws {
         
