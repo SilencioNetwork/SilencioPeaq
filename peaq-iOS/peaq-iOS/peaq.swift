@@ -89,7 +89,7 @@ public class peaq: NSObject {
                             doc.authentications = [machineAccountAddressData.toHex()]
                         }
                         docVerificationMethod.controller = "did:peaq:\(issuserAddress)"
-                        docVerificationMethod.publicKeyMultibase = machineAddress
+                        docVerificationMethod.publicKeyMultibase = machinePublicKey.toHex()
                         doc.verificationMethods = [docVerificationMethod]
                         
                         var docSignature = Document_Signature()
@@ -155,7 +155,7 @@ public class peaq: NSObject {
                 doc.authentications = [machineAccountAddressData.toHex()]
             }
             docVerificationMethod.controller = "did:peaq:\(issuerAddress)"
-            docVerificationMethod.publicKeyMultibase = machineAddress
+            docVerificationMethod.publicKeyMultibase = machinePublicKey.toHex()
             doc.verificationMethods = [docVerificationMethod]
             
             
